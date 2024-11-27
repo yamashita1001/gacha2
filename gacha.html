@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>5W1Hガチャ</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            // アラートフラグ
+            let whenFlag = false;
+            let whereFlag = false;
+            let whoFlag = false;
+            let whatFlag = false;
+            let whyFlag = false;
+            let howFlag = false;
+            // 一回押したら押せなくするためのフラグ
+            let whenClickFlag = false;
+            let whereClickFlag = false;
+            let whoClickFlag = false;
+            let whatClickFlag = false;
+            let whyClickFlag = false;
+            let howClickFlag = false;
+
+            // 文章完成フラグ
+            let sentenceCompleteFlag = false;
+
+
+            // 履歴更新用
+            let history = ["", "", ""];
+            // いつ
+            function whenGacha(){
+                // 文章完成していない且つ1回もクリックしていない
+                if((whenClickFlag == false) && (sentenceCompleteFlag == false)){
+                    whenFlag = true;
+                    whenClickFlag = true;       // クリック不可に
+
+                    var whenStr = ["白亜紀に","縄文時代に", "江戸時代に", "明治時代に", "大正時代に", "昭和時代に", "平成時代に", "令和時代に",
+                                "2000年前", "1000年前", "100年前", "50年前", "10年前の今日", "10年前の夏" ,"10年前の冬" ,
+                                "一昨年", "去年の夏", "去年の冬", "半年前", "一か月前", "1週間前", "一昨日", "昨日", "今日"]
+                    
+                    // ランダム生成
+                    var whenRandom = parseInt(Math.random() * 20);
+                    // var r = parseInt(Math.random() * 12) + 1;
+
+                    // document.pic.src = "pic" + whenRandom + ".jpg";  //仮画像
+                    document.getElementById("whenResult").textContent = whenStr[whenRandom] + "、";
+                }
+                else if(whatClickFlag == true){
+                    window.alert("このボタンは既に押しています");
+                }
+                else{
+                    window.alert("リセットしてください");
+                }
+                
+                
+            }
+            // どこで
+            function whereGacha(){
+                if((whenFlag == true) && (whereClickFlag) == false && (sentenceCompleteFlag == false)){
+                    whereFlag = true;
+                    whereClickFlag = true;      // クリック不可に
+                    var whereStr = ["公園で", "体育館で"]
+                    var whereRandom = parseInt(Math.random() * 2);
+                    document.getElementById("whereResult").textContent = whereStr[whereRandom];
+                }
+                else if((whenFlag == false) && (sentenceCompleteFlag == false)){
+                    window.alert("いつ(When)ボタンを押してください");
+                }
+                else if(whereClickFlag == true){
+                    window.alert("このボタンは既に押しています");
+                }
+                else{
+                    window.alert("リセットしてください");
+                }
+            }
+            // 誰が
+            function whoGacha(){
+                if((whenFlag == true) && (whereFlag == true) && (whoClickFlag) == false && (sentenceCompleteFlag == false)){
+                    whoFlag = true;
+                    whoClickFlag = true;        // クリック不可に
+                    var whoStr = ["自分が", "赤の他人が"]
+                    var whoRandom = parseInt(Math.random() * 2);
+                    document.getElementById("whoResult").textContent = whoStr[whoRandom];
+                }
+                else if((whenFlag == false) && (whereFlag == false) && (sentenceCompleteFlag == false)){
+                    window.alert("いつ(When)ボタン、どこで(Where)ボタンを押してください");
+                }
+                else if((whereFlag == false) && (sentenceCompleteFlag == false)){
+                    window.alert("どこで(Where)ボタンを押してください");
+                }
+                else if(whoClickFlag == true){
+                    window.alert("このボタンは既に押しています");
+                }
+                else{
+                    window.alert("リセットしてください");
+                }
+                console.log(whoFlag);
+            }
+            // 何を
+            function whatGacha(){
+                if((whenFlag == true) && (whereFlag == true) && (whoFlag == true) && (whatClickFlag) == false && (sentenceCompleteFlag == false)){
+                    whatFlag = true;
+                    whatClickFlag = true;       // クリック不可に
+                    var whatStr = ["魚を", "スーパーの商品を"]
+                    var whatRandom = parseInt(Math.random() * 2);
+                    document.getElementById("whatResult").textContent = whatStr[whatRandom];
+                }
+                else if((whenFlag == false) && (whereFlag == false) && (whoFlag == false) && (sentenceCompleteFlag == false)){
+                    window.alert("いつ(When)ボタン、どこで(Where)ボタン、誰が(Who)ボタンを押してください");
+                }
+                else if((whereFlag == false) && (whoFlag == false) && (sentenceCompleteFlag == false)){
+                    window.alert("どこで(Where)ボタン、誰が(Who)ボタンを押してください");
+                }
+                else if((whoFlag == false) && (sentenceCompleteFlag == false)){
+                    window.alert("誰が(Who)ボタンを押してください");
+                    console.log(whoFlag);
+                }
+                else if(whatClickFlag == true){
+                    window.alert("このボタンは既に押しています");
+                }
+                else{
+                    window.alert("リセットしてください");
+                }
+            }
+
+            // 何故
+            function whyGacha(){
+                if((whenFlag == true) && (whereFlag == true) && (whoFlag == true) && (whatFlag == true) && (whyClickFlag) == false && (sentenceCompleteFlag == false)){
+                    whyFlag = true;
+                    whyClickFlag = true;
+                    var whyStr = ["筋肉を付けるために","買うために"]
+                    var whyRandom = parseInt(Math.random() * 2);
+                    document.getElementById("whyResult").textContent = whyStr[whyRandom];
+                }
+                else if((whenFlag == false) && (whereFlag == false) && (whoFlag == false) && (whatFlag == false) && (sentenceCompleteFlag == false)){
+                    window.alert("いつ(When)ボタン、どこで(Where)ボタン、誰が(Who)ボタン、何を(What)ボタンを押してください");
+                }
+                else if((whereFlag == false) && (whoFlag == false) && (whatFlag == false) && (sentenceCompleteFlag == false)){
+                    window.alert("どこで(Where)ボタン、誰が(Who)ボタン、何を(What)ボタンを押してください");
+                }
+                else if((whoFlag == false) && (whatFlag == false) && (sentenceCompleteFlag == false)){
+                    window.alert("誰が(Who)ボタン、何を(What)ボタンを押してください");
+                }
+                else if((whatFlag == false) && (sentenceCompleteFlag == false)){
+                    window.alert("誰が(What)ボタンを押してください");
+                }
+                else if(whyClickFlag == true){
+                    window.alert("このボタンは既に押しています");
+                }
+                else{
+                    window.alert("リセットしてください");
+                }
+            }
+
+            // どのように
+            function howGacha(){
+                if((whenFlag == true) && (whereFlag == true) && (whoFlag == true) && (whatFlag == true) && (whyFlag == true) && (howClickFlag == false) && (sentenceCompleteFlag == false)){
+                    howFlag = true;
+                    howClickFlag = true;
+                    var howStr = ["友人が予約してくれた", "エコバッグを持って行き、自転車で行った"]
+                    var howRandom = parseInt(Math.random() * 2);
+                    document.getElementById("howResult").textContent = howStr[howRandom];
+                }
+                else if((whenFlag == false) && (whereFlag == false) && (whoFlag == false) && (whatFlag == false) && (whyFlag == false) && (sentenceCompleteFlag == false)){
+                    window.alert("いつ(When)ボタン、どこで(Where)ボタン、誰が(Who)ボタン、何を(What)ボタン、何故(Why)ボタンを押してください");
+                }
+                else if((whereFlag == false) && (whoFlag == false) && (whatFlag == false) && (whyFlag == false) && (sentenceCompleteFlag == false)){
+                    window.alert("どこで(Where)ボタン、誰が(Who)ボタン、何を(What)ボタン、何故(Why)ボタンを押してください");
+                }
+                else if((whoFlag == false) && (whatFlag == false) && (whyFlag == false) && (sentenceCompleteFlag == false)){
+                    window.alert("誰が(Who)ボタン、何を(What)ボタン、何故(Why)ボタンを押してください");
+                }
+                else if((whatFlag == false) && (whyFlag == false) && (sentenceCompleteFlag == false)){
+                    window.alert("何を(What)ボタン、何故(Why)ボタンを押してください");
+                }
+                else if((whyFlag == false) && (sentenceCompleteFlag == false)){
+                    window.alert("何故(Why)ボタンを押してください");
+                }
+                else if(howClickFlag == true){
+                    window.alert("このボタンは既に押しています");
+                }
+                else{
+                    window.alert("リセットしてください");
+                }
+            }
+
+            // 履歴用結果結合
+            function joinText(){
+                // 全部のボタンを押したときのみ履歴に残す
+                if((whenFlag == true) && (whereFlag == true) && (whoFlag == true) && (whatFlag == true) && (whyFlag == true) && (howFlag == true) && (sentenceCompleteFlag == false)){
+                    sentenceCompleteFlag = true;
+                    var whenText = document.getElementById("whenResult").textContent;
+                    var whereText = document.getElementById("whereResult").textContent;
+                    var whoText = document.getElementById("whoResult").textContent;
+                    var whatText = document.getElementById("whatResult").textContent;
+                    var whyText = document.getElementById("whyResult").textContent;
+                    var howText = document.getElementById("howResult").textContent;
+
+                    var joinText = whenText + whereText + whoText + whatText + whyText + howText;
+                    console.log(joinText);
+                    // document.getElementById("joinTextResult").textContent = joinText;
+                    updateHistory(joinText);
+                }
+
+            }
+
+            // 履歴更新用
+            function updateHistory(newJoinText){
+
+                this.newJoinText = newJoinText;
+                // 入替
+                history[2] = history[1];
+                history[1] = history[0];
+                history[0] = newJoinText;
+
+                document.getElementById("nowJoinTextResult").textContent = history[0];
+                document.getElementById("prevJoinTextResult").textContent = history[1];
+                document.getElementById("secondPrevjoinTextResult").textContent = history[2];
+
+                // 全フラグリセット
+                resetFlag();
+                
+            }
+
+            function resetText(){
+                sentenceCompleteFlag = false;
+                document.getElementById("whenResult").textContent = "";
+                document.getElementById("whereResult").textContent = "";
+                document.getElementById("whoResult").textContent = "";
+                document.getElementById("whatResult").textContent = "";
+                document.getElementById("whyResult").textContent = "";
+                document.getElementById("howResult").textContent = "";
+
+                resetFlag();
+            }
+        
+            // クリップボードにコピー処理
+            function copyButton(elementId) {
+                // 指定したIDの要素のテキストを取得
+                var element = document.getElementById(elementId);
+                console.log(element);
+                // クリップボードにコピー
+                navigator.clipboard.writeText(element.textContent);
+                window.alert("クリップボードにコピーしました！")
+            }
+
+            function resetFlag(){
+                // 全ボタンフラグリセット
+                whenFlag = false;
+                whereFlag = false;
+                whoFlag = false;
+                whatFlag = false;
+                whyFlag = false;
+                howFlag = false;
+
+                // クリック判定フラグリセット
+                whenClickFlag = false;
+                whereClickFlag = false;
+                whoClickFlag = false;
+                whatClickFlag = false;
+                whyClickFlag = false;
+                howClickFlag = false;
+            }
+
+
+        </script>
+        <h1>5W1Hガチャ</h1>
+        <div class="main-contents">
+            <div class="button-container">
+                <div class="button-row">
+                    <!-- <img src="pic1.jpg" name="pic"> -->
+                    <div class="button01">
+                        <input type="button" value="いつ(When)" onclick="whenGacha()"/>
+                    </div>
+                    <div class="button02">
+                        <input type="button" value="どこで(Where)" onclick="whereGacha()"/>
+                    </div>
+                    <div class="button03">
+                        <input type="button" value="誰が(Who)" onclick="whoGacha()"/>
+                    </div>
+                    <div class="button04">
+                        <input type="button" value="何を(What)" onclick="whatGacha()"/>
+                    </div>
+                    <div class="button05">
+                        <input type="button" value="何故(Why)" onclick="whyGacha()"/>
+                    </div>
+                    <div class="button06">
+                        <input type="button" value="どのように(How)" onclick="howGacha(),joinText()"/>
+                    </div>
+                </div>
+                <div class="button07">
+                    <input type="button" value="リセット" onclick="resetText()"/>
+                </div>
+            </div>
+            
+            
+            <!-- ボタンを押したときの各出力 -->
+            <div class="result-contents">
+                <h3><div id="whenResult"></div></h3>
+                <h3><div id="whereResult"></div></h3>
+                <h3><div id="whoResult"></div></h3>
+                <h3><div id="whatResult"></div></h3>
+                <h3><div id="whyResult"></div></h3>
+                <h3><div id="howResult"></div></h3>
+            </div>
+            
+            <h2>直近の履歴</h2>
+            <table class="history-table">
+                <tr>
+                    <td class="history-td" colspan="4">履歴</td>
+                </tr>
+                <tr>
+                    <th class="history-th" colspan="1">今回</th>
+                    <th class="history-th" colspan="2"><span id="nowJoinTextResult"></span></th>
+                    <!-- コピーボタン -->
+                    <th class="history-th">
+                        <button class="copy-button" onclick="copyButton('nowJoinTextResult')">コピー</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="history-th">前回</th>
+                    <th class="history-th" colspan="2"><span id="prevJoinTextResult"></span></th>
+                    <!-- コピーボタン -->
+                    <th class="history-th">
+                        <button class="copy-button" onclick="copyButton('prevJoinTextResult')">コピー</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="history-th">前々回</th>
+                    <th class="history-th" colspan="2"><span id="secondPrevjoinTextResult"></span></th>
+                    <!-- コピーボタン -->
+                    <th class="history-th">
+                        <button class="copy-button" onclick="copyButton('secondPrevjoinTextResult')">コピー</button>
+                    </th>
+                </tr>
+                
+            </table>
+        </div>
+    </body>
+</html>

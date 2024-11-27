@@ -1,0 +1,173 @@
+@charset "UTF-8";
+body{
+    background-color: antiquewhite;
+}
+h1{
+    text-align: center; 
+}
+
+/* ボタン上下左右スペース */
+.button01,.button02,.button03,.button04,.button05,.button06{
+    margin: 10px;     /* 上下左右にスペース */
+}
+
+/* ボタンのスタイル */
+.button01 input[type="button"]{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;             /* ボーダー削除 */
+    border-radius: 5px;       /* 角丸 */
+    font-size: 16px;
+    cursor: pointer;          /* カーソル変更 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 影を追加 */
+}
+.button02 input[type="button"]{
+    background-color: #f83112;
+    color: white;
+    padding: 10px 20px;
+    border: none;             /* ボーダー削除 */
+    border-radius: 5px;       /* 角丸 */
+    font-size: 16px;
+    cursor: pointer;          /* カーソル変更 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 影を追加 */
+}
+.button03 input[type="button"]{
+    background-color: #17ffd4;
+    color: white;
+    padding: 10px 20px;
+    border: none;             /* ボーダー削除 */
+    border-radius: 5px;       /* 角丸 */
+    font-size: 16px;
+    cursor: pointer;          /* カーソル変更 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 影を追加 */
+}
+.button04 input[type="button"]{
+    background-color: #17ffd4;
+    color: white;
+    padding: 10px 20px;
+    border: none;             /* ボーダー削除 */
+    border-radius: 5px;       /* 角丸 */
+    font-size: 16px;
+    cursor: pointer;          /* カーソル変更 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 影を追加 */
+}
+.button05 input[type="button"]{
+    background-color: #17ffd4;
+    color: white;
+    padding: 10px 20px;
+    border: none;             /* ボーダー削除 */
+    border-radius: 5px;       /* 角丸 */
+    font-size: 16px;
+    cursor: pointer;          /* カーソル変更 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 影を追加 */
+}
+.button06 input[type="button"]{
+    background-color: #17ffd4;
+    color: white;
+    padding: 10px 20px;
+    border: none;             /* ボーダー削除 */
+    border-radius: 5px;       /* 角丸 */
+    font-size: 16px;
+    cursor: pointer;          /* カーソル変更 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 影を追加 */
+}
+/* ボタンをホバーしたときのスタイル
+.button01 input[type="button"]:hover {
+    background-color: #45a049; /* 濃い緑 */
+    /* transform: scale(1.2);    /* 少し大きくする */
+/*} */
+
+.main-contents{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.result-contents{
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    margin: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.result-contents h3{
+    margin: 0;
+}
+
+.history-table{
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border: 1px solid #000;
+}
+  
+.history-th{
+    border: 1px solid #000;
+    background: #ebebeb;
+    padding: 20px;
+}
+
+.history-td{
+    border: 1px solid #000;
+    padding: 20px 200px 20px 200px;
+    text-align: center;
+}
+
+/* コピー用ボタンのスタイル */
+.copy-button{
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); /* 影を追加 */
+}
+
+/* ホバー時のスタイル */
+.copy-button:hover{
+    background-color: #d9d9d9;
+    transform: scale(1.1);
+}
+
+/* ボタン全体 */
+.button-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* 左寄せ */
+    gap: 20px;
+    position: relative; /* ボタン07の配置に必要 */
+}
+
+/* 横並べ */
+.button-row{
+    display: flex;
+    gap: 10px; /* ボタン間スペース */
+}
+
+/* ボタン07を06の右下に配置 */
+.button07{
+    position: absolute;
+    top: 60px; /* 適切な位置を調整 */
+    left: calc(100% + 10px); /* ボタン06の右横に少し間隔を追加 */
+}
+
+@media screen and (max-width: 768px) {
+    .button-row {
+        flex-direction: column; /* 縦並び */
+        align-items: flex-start; /* 左寄せ */
+        gap: 15px; /* ボタン間の縦スペース */
+    }
+
+    .button07 {
+        position: static; /* 通常の配置に戻す */
+        margin-top: 20px; /* 上部に余白を追加 */
+    }
+}
