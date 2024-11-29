@@ -13,7 +13,7 @@ h1{
 
 /* ボタンのスタイル */
 .button01 input[type="button"]{
-    background-color: #4CAF50;
+    background-color: #F28C8E;
     color: white;
     padding: 10px 20px;
     border: none;             /* ボーダー削除 */
@@ -23,7 +23,7 @@ h1{
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 影を追加 */
 }
 .button02 input[type="button"]{
-    background-color: #f83112;
+    background-color: #FCB869;
     color: white;
     padding: 10px 20px;
     border: none;             /* ボーダー削除 */
@@ -33,7 +33,7 @@ h1{
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 影を追加 */
 }
 .button03 input[type="button"]{
-    background-color: #17ffd4;
+    background-color: #CACA61;
     color: white;
     padding: 10px 20px;
     border: none;             /* ボーダー削除 */
@@ -43,7 +43,7 @@ h1{
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 影を追加 */
 }
 .button04 input[type="button"]{
-    background-color: #17ffd4;
+    background-color: #3FABA4;
     color: white;
     padding: 10px 20px;
     border: none;             /* ボーダー削除 */
@@ -53,7 +53,7 @@ h1{
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 影を追加 */
 }
 .button05 input[type="button"]{
-    background-color: #17ffd4;
+    background-color: #6591C0;
     color: white;
     padding: 10px 20px;
     border: none;             /* ボーダー削除 */
@@ -63,7 +63,7 @@ h1{
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 影を追加 */
 }
 .button06 input[type="button"]{
-    background-color: #17ffd4;
+    background-color: #AC7EAE;
     color: white;
     padding: 10px 20px;
     border: none;             /* ボーダー削除 */
@@ -72,12 +72,36 @@ h1{
     cursor: pointer;          /* カーソル変更 */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 影を追加 */
 }
-/* ボタンをホバーしたときのスタイル
-.button01 input[type="button"]:hover {
-    background-color: #45a049; /* 濃い緑 */
-    /* transform: scale(1.2);    /* 少し大きくする */
-/*} */
 
+.button01 input[type="button"]:hover {
+    background-color: #ec7375;
+    transform: scale(1.1);    /* 少し大きくする */
+}
+
+.button02 input[type="button"]:hover {
+    background-color: #faa442;
+    transform: scale(1.1);    /* 少し大きくする */
+}
+
+.button03 input[type="button"]:hover {
+    background-color: #c2c22b;
+    transform: scale(1.1);    /* 少し大きくする */
+}
+
+.button04 input[type="button"]:hover {
+    background-color: #1c9b93;
+    transform: scale(1.1);    /* 少し大きくする */
+}
+
+.button05 input[type="button"]:hover {
+    background-color: #487eb8;
+    transform: scale(1.1);    /* 少し大きくする */
+}
+
+.button06 input[type="button"]:hover {
+    background-color: #a15fa3;
+    transform: scale(1.1);    /* 少し大きくする */
+}
 .main-contents{
     display: flex;
     flex-direction: column;
@@ -88,14 +112,15 @@ h1{
 .result-contents{
     display: flex;
     justify-content: space-between;
-    background-color: #ffffff;
     margin: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    /* background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); */
     margin-bottom: 15px;
     border-radius: 10px;
+    /* width: 800px;
+    height: 50px; */
 }
 
 .result-contents h3{
@@ -152,22 +177,38 @@ h1{
     gap: 10px; /* ボタン間スペース */
 }
 
-/* ボタン07を06の右下に配置 */
+/* リセットボタンを5W1Hボタンの右下に配置 */
 .button07{
     position: absolute;
     top: 60px; /* 適切な位置を調整 */
     left: calc(100% + 10px); /* ボタン06の右横に少し間隔を追加 */
 }
 
-@media screen and (max-width: 768px) {
-    .button-row {
-        flex-direction: column; /* 縦並び */
-        align-items: flex-start; /* 左寄せ */
-        gap: 15px; /* ボタン間の縦スペース */
+.button07 input[type="button"]{
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2); /* 影を追加 */
+}
+
+/* ホバー時のスタイル */
+.button07 input[type="button"]:hover {
+    background-color: #d9d9d9;
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px){
+    .button-row{
+        flex-direction: column;     /* 縦並び */
+        align-items: flex-start;    /* 左寄せ */
+        gap: 15px;  /* ボタン間の縦スペース */
     }
 
-    .button07 {
-        position: static; /* 通常の配置に戻す */
-        margin-top: 20px; /* 上部に余白を追加 */
+    .button07{
+        position: static;   /* 通常の配置に戻す */
+        margin-top: 20px;   /* 上部に余白を追加 */
     }
 }
