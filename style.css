@@ -212,3 +212,8 @@ h1{
         margin-top: 20px;   /* 上部に余白を追加 */
     }
 }
+
+.explanation-container{
+    text-align: center;
+    padding-bottom: 50px;
+}
